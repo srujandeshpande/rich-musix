@@ -13,8 +13,10 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadURL('https://music.apple.com')
 
+
+  // mainWindow.open('https://music.apple.com')
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
