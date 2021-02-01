@@ -1,21 +1,18 @@
 {
-  "name": "electron-quick-start",
+  "name": "rich-musix",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Rich Music Presense and for Linux",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/srujandeshpande/rich-musix",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Apple Music",
+    "music"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Srujan Deshpande",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^11.2.1"
   }
