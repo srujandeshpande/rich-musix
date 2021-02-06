@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // }
   console.log("Preloaded");
 
-  var config = { characterData: true };
+  var config = { characterData: true, attrributes: true, childList: true };
   var observer = new MutationObserver(function(mutations) {
     console.log("Something changed");
     console.log(target.innerText);   
