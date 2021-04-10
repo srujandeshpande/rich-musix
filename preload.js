@@ -13,33 +13,25 @@ window.addEventListener('DOMContentLoaded', () => {
   // }
   console.log("Preloaded");
 
-  var config = { characterData: true, attrributes: true, childList: true };
-  var observer = new MutationObserver(function(mutations) {
-    console.log("Something changed");
-    console.log(target.innerText);   
-  });
-  function addObserverIfDesiredNodeAvailable() {
-    var nameSpan = document.querySelector("#playback-name > div > div > span:nth-child(1) > span");
-    if(!nameSpan) {
-      window.setTimeout(addObserverIfDesiredNodeAvailable,500);
+  window.setInterval(pollForData, 5000);
+
+  function pollForData() {
+    const songNode = document.querySelector("#playback-name > div > div > span:nth-child(1) > span")
+    const aaNode = document.querySelector("#playback-sub-copy > div > div > span:nth-child(1) > span")
+
+    if (songNode) {
+      console.log("hi");
+      var songName = songNode.textContent.trim();
+      console.log(songName);
+      var aa = aaNode.textContent.trim().split('—');
+      var artistName = aa[0].trim();
+      var albumName = aa[1].trim();
+      console.log(artistName);
+      console.log(albumName);
+
+      ipcRenderer.send('song-change', songName, artistName, albumName);
+
       return;
     }
-    // var config = {childList: true};
-    // composeObserver.observe(composeBox,config);
-    console.log("Observer calling");
-    observer.observe(nameSpan, config);
-    console.log("Observer called");
   }
-  addObserverIfDesiredNodeAvailable();
-
-  
-  // var song_name = name_span.innerHTML;
-  
-  
-  // configuration of the observer:
-  
-  // pass in the target node, as well as the observer options
-  
-  
-  // ipcRenderer.send('song-change', song_name);
 })
