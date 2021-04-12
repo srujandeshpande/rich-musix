@@ -1,6 +1,20 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
+const Discord = require('discord-game');
+
+const isRequireDiscord = true;
+Discord.create('806224932982882324', isRequireDiscord);
+
+setInterval(function () {
+  Discord.runCallback(); // => true
+}, 1000 / 60)
+
+// async function updateActicity(activity) {
+//   console.log("Here3")
+//   await Discord.Activity.update(activity).then(function () { console.log('Rich Presence updated') });
+//   console.log("Here4")
+// }
 
 function createWindow() {
   // Create the browser window.
@@ -46,4 +60,23 @@ app.on('window-all-closed', function () {
 
 ipcMain.on('song-change', function (event, songName, songArtist, songAlbum) {
   console.log(songName, songArtist, songAlbum);
+  
+  // All property are optional
+  var activity = {
+    details: songName,
+    state: songArtist + " - " + songAlbum,
+    assets: {
+      largeImage: 'applemusic',
+      largeText: songName,
+      samllImage: 'applemusic',
+      smallText: songAlbum
+    },
+    timestamps: {
+      startAt: new Date(),
+      endAt: new Date()
+    }
+  };
+  console.log("Here1")
+  updateActicity(activity);
+  console.log("Here2")
 });

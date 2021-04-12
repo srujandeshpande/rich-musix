@@ -4,3 +4,4 @@ dump
 *.dll
 *.so
 *.dylib
+*.log

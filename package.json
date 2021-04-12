@@ -15,5 +15,8 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^11.2.1"
+  },
+  "dependencies": {
+    "discord-game": "^0.1.2"
   }
 }

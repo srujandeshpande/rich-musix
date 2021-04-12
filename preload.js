@@ -1,4 +1,6 @@
 const ipcRenderer = require('electron').ipcRenderer;
+const Discord = require('discord-game');
+
 
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
@@ -29,7 +31,20 @@ window.addEventListener('DOMContentLoaded', () => {
       console.log(artistName);
       console.log(albumName);
 
-      ipcRenderer.send('song-change', songName, artistName, albumName);
+      var activity = {
+        details: songName,
+        state: artistName + " - " + albumName,
+        assets: {
+          largeImage: 'applemusic',
+          largeText: songName,
+          samllImage: 'applemusic',
+          smallText: albumName
+        }
+      };
+
+      Discord.Activity.update(activity)
+
+      // ipcRenderer.send('song-change', songName, artistName, albumName);
 
       return;
     }
