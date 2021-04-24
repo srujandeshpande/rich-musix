@@ -5,3 +5,4 @@ dump
 *.so
 *.dylib
 *.out
+build
