@@ -16,6 +16,6 @@
   "author": "Srujan Deshpande",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^11.2.1"
+    "electron": "^16.0.0"
   }
 }
